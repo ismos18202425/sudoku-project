@@ -87,10 +87,19 @@ public void setValeur(final int x,
     }
 
     @Override
-    public Collection<ValeurDeCase> getValeursAutorisees() {
-
-        return Arrays.asList();
-    }
+public Collection<ValeurDeCase> getValeursAutorisees() {
+    return Arrays.asList(
+        new ValeurDeCaseAsChar('1'),
+        new ValeurDeCaseAsChar('2'),
+        new ValeurDeCaseAsChar('3'),
+        new ValeurDeCaseAsChar('4'),
+        new ValeurDeCaseAsChar('5'),
+        new ValeurDeCaseAsChar('6'),
+        new ValeurDeCaseAsChar('7'),
+        new ValeurDeCaseAsChar('8'),
+        new ValeurDeCaseAsChar('9')
+    );
+}
 
  private void checkBounds(final int x,
                          final int y)
@@ -101,6 +110,16 @@ public void setValeur(final int x,
 
         throw new HorsBornesException(
                 "Coordonnees invalides");
+    }
+}
+public GrilleImpl(ValeurDeCase[][] contenu) {
+
+    this();
+
+    for (int i = 0; i < DIMENSION; i++) {
+        for (int j = 0; j < DIMENSION; j++) {
+            grille[i][j] = contenu[i][j];
+        }
     }
 }
 }
